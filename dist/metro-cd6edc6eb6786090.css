@@ -1,0 +1,41 @@
+:root { --mu-accent:#008eab; --mu-font: 'Segoe UI', 'Segoe UI Variable', 'Segoe WP', 'Helvetica Neue', Arial, sans-serif; }
+[data-metro-ui-root] { font-family: var(--mu-font); -webkit-font-smoothing: antialiased; }
+.mu-text { line-height:1.25; }
+.mu-text-title { font-size:42px; font-weight:300; letter-spacing:1px; }
+.mu-text-subtitle { font-size:24px; font-weight:400; }
+.mu-text-base { font-size:16px; }
+.mu-text-caption { font-size:12px; opacity:0.75; }
+.mu-appbar { display:flex; align-items:center; gap:24px; padding:8px 32px; background:var(--mu-accent); color:#fff; }
+.mu-appbar-title { font-size:20px; font-weight:300; }
+.mu-appbar-actions { margin-left:auto; display:flex; gap:12px; }
+.mu-tile { 
+    position:relative; 
+    background:#222; 
+    color:#fff; 
+    padding:16px; 
+    width:180px; 
+    height:180px; 
+    box-sizing:border-box; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:flex-start; 
+    overflow:hidden;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(.33,.66,.4,1), box-shadow 0.2s ease-out;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translate3d(var(--tilt-shift-x,0px), var(--tilt-shift-y,0px), 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    will-change: transform;
+}
+.mu-tile:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.mu-tile:active {
+    animation: pulse 0.3s ease-out;
+}
+@keyframes pulse {
+    0% { transform: perspective(1000px) translate3d(var(--tilt-shift-x,0px), var(--tilt-shift-y,0px), 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1); }
+    50% { transform: perspective(1000px) translate3d(var(--tilt-shift-x,0px), var(--tilt-shift-y,0px), 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(0.95); }
+    100% { transform: perspective(1000px) translate3d(var(--tilt-shift-x,0px), var(--tilt-shift-y,0px), 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1); }
+}
+.mu-tile-title { font-size:14px; text-transform:uppercase; opacity:0.85; margin-bottom:8px; }
+body.dark .mu-tile { background:#111; }
