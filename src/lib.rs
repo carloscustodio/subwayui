@@ -24,7 +24,7 @@ use yew::prelude::*;
 #[cfg(feature = "static-css")]
 pub fn inject_global_styles() {
     spawn_local(async {
-        let style = include_str!("styles/metro.css");
+        let style = include_str!("styles/subway.css");
         let document = gloo_utils::document();
         let head = document.head().expect("document should have a head");
         let style_el = document

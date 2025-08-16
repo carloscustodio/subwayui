@@ -9,22 +9,22 @@ fn showcase() -> Html {
         <div class="section">
             <h2>{"Tiles"}</h2>
             <div class="showcase-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:24px;">
-                <Tile title={"Weather".to_string()} tilt={true} tilt_debug={true}>
+                <Tile title={"Weather".to_string()} tilt={true} >
                     <Text variant={MetroTextStyle::Title}>{"72°"}</Text>
                     <Text variant={MetroTextStyle::Caption}>{"Partly Cloudy"}</Text>
                 </Tile>
-                <Tile title={"Music".to_string()} tilt={true} tilt_debug={true}>
+                <Tile title={"Music".to_string()} tilt={true} >
                     <Text variant={MetroTextStyle::Subtitle}>{"Now Playing"}</Text>
                     <Text>{"Metro Theme Loop"}</Text>
                 </Tile>
-                <Tile title={"Calendar".to_string()} tilt={true} tilt_debug={true}>
+                <Tile title={"Calendar".to_string()} tilt={true}>
                     <Text variant={MetroTextStyle::Subtitle}>{"Aug 12"}</Text>
                     <Text>{"3 meetings"}</Text>
                 </Tile>
-                <Tile title={"Mail".to_string()} tilt={true} tilt_debug={true}>
+                <Tile title={"Mail".to_string()} tilt={true} >
                     <Text variant={MetroTextStyle::Caption}>{"2 new messages"}</Text>
                 </Tile>
-                <Tile title={"News".to_string()} tilt={true} tilt_debug={true}>
+                <Tile title={"News".to_string()} tilt={true}>
                     <Text>{"Skeleton ready"}</Text>
                 </Tile>
             </div>
