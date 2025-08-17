@@ -31,5 +31,9 @@ default = ["static-css"]
 static-css = []
 animations = []
 
+# Configure check-cfg to allow our custom features
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(feature, values("static-css", "animations"))'] }
+
 [package.metadata.docs]
 readme = "README.md"
