@@ -1,6 +1,6 @@
 [package]
 name = "subwayui"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 
 [lib]
@@ -22,6 +22,9 @@ web-sys = { version = "0.3", features = ["HtmlElement", "Document", "Element", "
 log = "0.4"
 wasm-logger = "0.2"
 
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+env_logger = "0.10"
+
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
 
@@ -30,6 +33,10 @@ default = ["static-css"]
 # Inject the bundled Metro CSS at runtime via a <style> tag
 static-css = []
 animations = []
+
+# Configure check-cfg to allow our custom features
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(feature, values("static-css", "animations"))'] }
 
 [package.metadata.docs]
 readme = "README.md"

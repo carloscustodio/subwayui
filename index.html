@@ -4,17 +4,58 @@
   <meta charset="utf-8" />
   <title>Metro UI Showcase</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Metro-inspired UI component library for Yew and Tauri" />
   <link data-trunk rel="rust" data-bin="showcase" />
-  <link data-trunk rel="css" href="src/styles/metro.css" />
+  <link data-trunk rel="css" href="src/styles/subway.css" />
   <style>
-    html,body { margin:0; background:#000; color:#fff; font-family: 'Segoe UI','Segoe UI Variable','Segoe WP',Arial,sans-serif; }
-    .showcase-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:24px; }
-    .section { margin-bottom:48px; }
-    .section h2 { font-weight:300; letter-spacing:1px; margin:0 0 16px; font-size:32px; }
-    .accent-alt { --mu-accent:#d14020; }
+    /* Optimized for Tauri webview */
+    html, body { 
+      margin: 0; 
+      padding: 0;
+      background: var(--metro-background, #f0f0f0); 
+      color: #333; 
+      font-family: 'Segoe UI','Segoe UI Variable','Segoe WP','Helvetica Neue',Arial,sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    
+    #app {
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    /* Performance optimizations for Tauri */
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        background: var(--metro-background-dark, #1a1a1a);
+        color: #fff;
+      }
+    }
+    
+    /* Loading state */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 18px;
+      opacity: 0.7;
+    }
+    
+    /* Accent variations */
+    .accent-alt { --mu-accent: #d14020; }
+    .accent-green { --mu-accent: #00b294; }
+    .accent-purple { --mu-accent: #8e44ad; }
   </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div class="loading">Loading Metro UI...</div>
+  </div>
 </body>
 </html>

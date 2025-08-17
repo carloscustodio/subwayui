@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <title>Metro UI Showcase</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Metro-inspired UI component library for Yew and Tauri" />
   
 <script type="module">
-import init, * as bindings from '/showcase-d721c981f6e496c7.js';
-const wasm = await init({ module_or_path: '/showcase-d721c981f6e496c7_bg.wasm' });
+import init, * as bindings from '/showcase-3d8911391697eefc.js';
+const wasm = await init({ module_or_path: '/showcase-3d8911391697eefc_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -16,17 +17,57 @@ window.wasmBindings = bindings;
 dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
 </script>
-  <link rel="stylesheet" href="/metro-cd6edc6eb6786090.css" integrity="sha384-uPjuSXLMddOXbIQFYZtMBxjdTQnOnl37hxzevVYKWw+uG+r/ns586Dmp3LuUcCfu"/>
+  <link rel="stylesheet" href="/subway-8d778b0d446c8c75.css" integrity="sha384-TV2+ZE4c38s9nzLpVLYoXC7+BecRvTcPCaQyJtLwi+AyWOoiHvfgeo95DpEL+V4p"/>
   <style>
-    html,body { margin:0; background:#000; color:#fff; font-family: 'Segoe UI','Segoe UI Variable','Segoe WP',Arial,sans-serif; }
-    .showcase-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:24px; }
-    .section { margin-bottom:48px; }
-    .section h2 { font-weight:300; letter-spacing:1px; margin:0 0 16px; font-size:32px; }
-    .accent-alt { --mu-accent:#d14020; }
+    /* Optimized for Tauri webview */
+    html, body { 
+      margin: 0; 
+      padding: 0;
+      background: var(--metro-background, #f0f0f0); 
+      color: #333; 
+      font-family: 'Segoe UI','Segoe UI Variable','Segoe WP','Helvetica Neue',Arial,sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    
+    #app {
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    /* Performance optimizations for Tauri */
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        background: var(--metro-background-dark, #1a1a1a);
+        color: #fff;
+      }
+    }
+    
+    /* Loading state */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 18px;
+      opacity: 0.7;
+    }
+    
+    /* Accent variations */
+    .accent-alt { --mu-accent: #d14020; }
+    .accent-green { --mu-accent: #00b294; }
+    .accent-purple { --mu-accent: #8e44ad; }
   </style>
-<link rel="modulepreload" href="/showcase-d721c981f6e496c7.js" crossorigin="anonymous" integrity="sha384-1wezhqAhhEuInBW48J/o1srX7U2qKpJoY8p2W2VvHwTs44nv7f/0ywd0d5LlkMhG"><link rel="preload" href="/showcase-d721c981f6e496c7_bg.wasm" crossorigin="anonymous" integrity="sha384-O8CCFow7x96CECi+P/F6pthcnR+XSfcWzY+w7cGloKrLUYcxrLGpy5az0M8/lULa" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/showcase-3d8911391697eefc.js" crossorigin="anonymous" integrity="sha384-OxvRvirCPNIhpwh4JAHnBa9AspuB7mcs3LsXgDwyR32alUAEOg62eqAUgGD+C58T"><link rel="preload" href="/showcase-3d8911391697eefc_bg.wasm" crossorigin="anonymous" integrity="sha384-VaHR/+TJ44CY3eZr+iCkPOO3mK5ur/kWFuisiEsWyFGjtyV2OdIr27uSUgGAcWfE" as="fetch" type="application/wasm"></head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div class="loading">Loading Metro UI...</div>
+  </div>
 <script>"use strict";
 
 (function () {
