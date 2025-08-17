@@ -1,6 +1,6 @@
-use metro_ui::components::{AppBar, Tile};
-use metro_ui::typography::{MetroTextStyle, Text};
-use metro_ui::{metro_app, MetroProvider};
+use subwayui::components::{AppBar, Tile};
+use subwayui::typography::{MetroTextStyle, Text};
+use subwayui::{metro_app, MetroProvider};
 use yew::prelude::*;
 
 #[function_component(Showcase)]

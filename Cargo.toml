@@ -1,10 +1,10 @@
 [package]
-name = "metro-ui"
+name = "subwayui"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "metro_ui"
+name = "subwayui"
 path = "src/lib.rs"
 crate-type = ["rlib", "cdylib"]
 
